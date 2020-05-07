@@ -1,4 +1,3 @@
-/* nuklear - v1.32.0 - public domain */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -55,14 +54,6 @@ die(const char *fmt, ...)
     exit(EXIT_FAILURE);
 }
 
-static void*
-xcalloc(size_t siz, size_t n)
-{
-    void *ptr = calloc(siz, n);
-    if (!ptr) die("Out of memory\n");
-    return ptr;
-}
-
 static long
 timestamp(void)
 {
@@ -82,24 +73,7 @@ sleep_for(long t)
     while(-1 == nanosleep(&req, &req));
 }
 
-/* ===============================================================
- *
- *                          EXAMPLE
- *
- * ===============================================================*/
-/* These are some code examples to provide a small overview of what can be
- * done with this library. To try out an example uncomment the include
- * and the corresponding function. */
-/*#include "../style.c"*/
-/*#include "../calculator.c"*/
-/*#include "../overview.c"*/
-/*#include "../node_editor.c"*/
 
-/* ===============================================================
- *
- *                          DEMO
- *
- * ===============================================================*/
 int
 main(void)
 {
@@ -177,11 +151,6 @@ main(void)
         nk_end(ctx);
         if (nk_window_is_hidden(ctx, "Demo")) break;
 
-        /* -------------- EXAMPLES ---------------- */
-        /*calculator(ctx);*/
-        /*overview(ctx);*/
-        /*node_editor(ctx);*/
-        /* ----------------------------------------- */
 
         /* Draw */
         XClearWindow(xw.dpy, xw.win);
